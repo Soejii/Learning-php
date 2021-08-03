@@ -7,39 +7,42 @@ class PDAM
     {
         $this->id = $id;
         $this->nama = $nama;
+        if ($penggunaan <10) {
+            $this->penggunaan = 10;
+        }
+        else {
+            $this->penggunaan = $penggunaan;
+        }
         $this->penggunaan = $penggunaan;
     }
 
    public function getBiaya() 
    {
-   if ($penggunaan <=10) {
-       tarif = 10000;
-   } elseif ($penggunaan > 10 && $penggunaan <20 ) {
-       tarif = $penggunaan * 30000;
-   } elseif ($penggunaan > 20 && $penggunaan 30 ) {
-       tarif = $penggunaan * 4000;
-   } elseif ($penggunaan > 30 ) {
-       tarif = $penggunaan * 5000;
+   if ($this->penggunaan <=10) {
+       $tarif = 10000;
+   } elseif ($this->penggunaan > 10 && $this->penggunaan <20 ) {
+       $tarif = 3000;
+   } elseif ($this->penggunaan > 20 && $this->penggunaan <30 ) {
+       $tarif = 4000;
+   } elseif ($this->penggunaan > 30 ) {
+       $tarif = 5000;
    } 
 
-   }
 
-   ali = new Pelanggan("1","Ali", 90);
-   echo nl2br("\n Tagihan ".$galuh->nama." sebesar ".$galuh->getBiaya());
-
-  
-       
-   
-    
-
-
-
-
+   $hasil = $this->penggunaan * $tarif + 10000;
 }
+  
 
+   
+   $pelanggan = [
+    new PDAM (1,'Ali',24),
+    new PDAM (2,'Umar',11),
+    new PDAM (3,'Akbar',51),
+    new PDAM (4,'Ambar',45),
+    new PDAM (5,'Jack',12)
+   ];
 
-
-
-
-
+   for ($i=0; $i < count($pelanggan) ; $i++) { 
+    echo nl2br("Pelanggan: ".$pelanggan[$i]->nama ." Biaya: ".$pelanggan[$i]->getBiaya()."\n");
+ 
 ?>
